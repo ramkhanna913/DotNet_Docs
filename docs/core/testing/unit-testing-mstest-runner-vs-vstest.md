@@ -16,7 +16,7 @@ Tests are executed in different ways depending on the runner.
 
 ### Execute VSTest tests
 
-VSTest ships with Visual Studio, the .NET SDK, and as a standalone tool in the [Microsoft.Testing.Platform](https://www.nuget.org/packages/Microsoft.Testing.Platform) NuGet package. VSTest uses a runner executable to run tests, called `vstest.console.exe`, which can be used directly or through `dotnet test`.
+VSTest ships with Visual Studio, the .NET SDK, and as a standalone tool in the [Microsoft.TestPlatform](https://www.nuget.org/packages/Microsoft.TestPlatform) NuGet package. VSTest uses a runner executable to run tests, called `vstest.console.exe`, which can be used directly or through `dotnet test`.
 
 ### Execute MSTest runner tests
 
@@ -35,6 +35,26 @@ VSTest is extensible and common types are placed in [Microsoft.TestPlatform.Obje
 ### MSTest runner namespaces
 
 The MSTest runner is based on [Microsoft.Testing.Platform](https://www.nuget.org/packages/Microsoft.Testing.Platform) NuGet package and other libraries in the `Microsoft.Testing.*` namespace. Like VSTest, the `Microsoft.Testing.Platform` is open-source and has a [microsoft/testfx](https://github.com/microsoft/testfx/tree/main/src/Platform/Microsoft.Testing.Platform) GitHub repository.
+
+## Communication protocol
+
+> [!NOTE]
+> Test Explorer supports the MSTest Runner protocol from version 17.10. If you run/debug your tests using earlier versions of Visual Studio,
+> Test Explorer will use `vstest.console.exe` and the old protocol to run these tests.
+
+The MSTest runner uses a JSON-RPC based protocol to communicate between Visual Studio and the test runner process. The protocol is documented in the [MSTest github repository](https://github.com/microsoft/testfx/tree/main/docs/mstest-runner-protocol).
+
+VSTest also uses a JSON based communication protocol, but it's not JSON-RPC based.
+
+### Disabling the new protocol
+
+To disable the use of the new protocol in Test Explorer, you can edit the csproj and remove the `TestingPlatformServer` capability.
+
+```xml
+<ItemGroup>
+    <ProjectCapability Remove="TestingPlatformServer" />
+</ItemGroup>
+```
 
 ## Executables
 

@@ -1,7 +1,7 @@
 ---
 title: dotnet tool install command
 description: The dotnet tool install command installs the specified .NET tool on your machine.
-ms.date: 07/19/2023
+ms.date: 02/26/2024
 ---
 # dotnet tool install
 
@@ -104,7 +104,7 @@ For more information, see [Install a local tool](global-tools.md#install-a-local
   If a tool-manifest can't be found and the `--create-manifest-if-needed` option is set to true, the tool creates a manifest automatically. It chooses a folder for the manifest as follows:
 
   * Walk up the directory tree searching for a directory that has a `.git` subfolder. If one is found, create the manifest in that directory.
-  * If the previous step doesn't find a directory, walk up the directory tree searching for a directory that has a `.sln/git` file. If one is found, create the manifest in that directory.
+  * If the previous step doesn't find a directory, walk up the directory tree searching for a directory that has a `.sln` or `.git` file. If one is found, create the manifest in that directory.
   * If neither of the previous two steps finds a directory, create the manifest in the current working directory.
 
 - **`--disable-parallel`**
@@ -152,6 +152,8 @@ For more information, see [Install a local tool](global-tools.md#install-a-local
 - **`--version <VERSION_NUMBER>`**
 
   The version of the tool to install. By default, the latest stable package version is installed. Use this option to install preview or older versions of the tool.
+
+  Starting with .NET 8.0, `--version Major.Minor.Patch` refers to a specific major/minor/patch version, including unlisted versions. To get the latest version of a certain major/minor version instead, use `--version Major.Minor.*`.
 
 ## Examples
 

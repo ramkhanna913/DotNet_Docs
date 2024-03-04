@@ -66,7 +66,7 @@ NuGet is the package manager for .NET. It contains hundreds of thousands of pack
 
 ## Support
 
-.NET is [supported by multiple organizations](https://github.com/dotnet/core/blob/main/support.md) that work to ensure that .NET can run on [multiple operating systems](https://github.com/dotnet/core/blob/main/os-lifecycle-policy.md) and kept up to date. It can be used on Arm64, x64, and x86 architectures.
+.NET is [supported by multiple organizations](https://github.com/dotnet/core/blob/main/support.md) that work to ensure that .NET can run on [multiple operating systems](https://github.com/dotnet/core/blob/main/os-lifecycle-policy.md) and is kept up to date. It can be used on Arm64, x64, and x86 architectures.
 
 New versions of .NET are released annually in November, per our [releases and support policies](releases-and-support.md). It is [updated monthly](https://github.com/dotnet/announcements/labels/Monthly-Update) on Patch Tuesday (second Tuesday), typically at 10AM Pacific time.
 
@@ -76,7 +76,7 @@ There are multiple variants of .NET, each supporting a different type of app. Th
 
 .NET implementations:
 
-* **.NET Framework** -- The original .NET. It provides access to the broad capabilities of Windows and Windows Server. It is actively supported, in maintainenance.
+* **.NET Framework** -- The original .NET. It provides access to the broad capabilities of Windows and Windows Server. It is actively supported, in maintenance.
 * **Mono** -- The original community and open source .NET. A cross-platform implementation of .NET Framework. Actively supported for Android, iOS, and WebAssembly.
 * **.NET (Core)** -- Modern .NET. A cross-platform and open source implementation of .NET, rethought for the cloud age while remaining significantly compatible with .NET Framework. Actively supported for Linux, macOS, and Windows.
 

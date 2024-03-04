@@ -2,7 +2,7 @@
 title: ASP.NET Core metrics
 description: Review the metrics available for ASP.NET Core
 ms.topic: reference
-ms.date: 11/02/2023
+ms.date: 2/01/2024
 ---
 
 # ASP.NET Core metrics
@@ -21,7 +21,7 @@ The `Microsoft.AspNetCore.Hosting` metrics report high-level information about H
 - [`http.server.request.duration`](#metric-httpserverrequestduration)
 - [`http.server.active_requests`](#metric-httpserveractive_requests)
 
-### Metric: `http.server.request.duration`
+##### Metric: `http.server.request.duration`
 
 | Name     | Instrument Type | Unit (UCUM) | Description    |
 | -------- | --------------- | ----------- | -------------- |
@@ -48,9 +48,12 @@ The time ends when:
 - All response data has been sent.
 - The context data structures for the request are being disposed.
 
+When using OpenTelemetry, the default buckets for this metric are set to [ 0.005, 0.01, 0.025, 0.05, 0.075, 0.1, 0.25, 0.5, 0.75, 1, 2.5, 5, 7.5, 10 ].
+
+<!-- Once we migrate this doc to https://github.com/dotnet/AspNetCore.Docs we can remove the following version info -->
 Available starting in: .NET 8.0.
 
-### Metric: `http.server.active_requests`
+##### Metric: `http.server.active_requests`
 
 | Name     | Instrument Type | Unit (UCUM) | Description    |
 | -------- | --------------- | ----------- | -------------- |
@@ -65,11 +68,11 @@ Available starting in: .NET 8.0.
 
 ## `Microsoft.AspNetCore.Routing`
 
-The `Microsoft.AspNetCore.Hosting` metrics report information about [routing HTTP requests](/aspnet/core/fundamentals/routing) to ASP.NET Core endpoints:
+The `Microsoft.AspNetCore.Routing` metrics report information about [routing HTTP requests](/aspnet/core/fundamentals/routing) to ASP.NET Core endpoints:
 
 - [`aspnetcore.routing.match_attempts`](#metric-aspnetcoreroutingmatch_attempts)
 
-### Metric: `aspnetcore.routing.match_attempts`
+##### Metric: `aspnetcore.routing.match_attempts`
 
 | Name     | Instrument Type | Unit (UCUM) | Description    |
 | -------- | --------------- | ----------- | -------------- |
@@ -89,7 +92,7 @@ The `Microsoft.AspNetCore.Diagnostics` metrics report diagnostics information fr
 
 - [`aspnetcore.diagnostics.exceptions`](#metric-aspnetcorediagnosticsexceptions)
 
-### Metric: `aspnetcore.diagnostics.exceptions`
+##### Metric: `aspnetcore.diagnostics.exceptions`
 
 | Name     | Instrument Type | Unit (UCUM) | Description    |
 | -------- | --------------- | ----------- | -------------- |
@@ -113,7 +116,7 @@ The `Microsoft.AspNetCore.RateLimiting` metrics report rate limiting information
 - [`aspnetcore.rate_limiting.request.time_in_queue`](#metric-aspnetcorerate_limitingrequesttime_in_queue)
 - [`aspnetcore.rate_limiting.requests`](#metric-aspnetcorerate_limitingrequests)
 
-### Metric: `aspnetcore.rate_limiting.active_request_leases`
+##### Metric: `aspnetcore.rate_limiting.active_request_leases`
 
 | Name     | Instrument Type | Unit (UCUM) | Description    |
 | -------- | --------------- | ----------- | -------------- |
@@ -125,7 +128,7 @@ The `Microsoft.AspNetCore.RateLimiting` metrics report rate limiting information
 
 Available starting in: .NET 8.0.
 
-### Metric: `aspnetcore.rate_limiting.request_lease.duration`
+##### Metric: `aspnetcore.rate_limiting.request_lease.duration`
 
 | Name     | Instrument Type | Unit (UCUM) | Description    |
 | -------- | --------------- | ----------- | -------------- |
@@ -137,7 +140,7 @@ Available starting in: .NET 8.0.
 
 Available starting in: .NET 8.0.
 
-### Metric: `aspnetcore.rate_limiting.queued_requests`
+##### Metric: `aspnetcore.rate_limiting.queued_requests`
 
 | Name     | Instrument Type | Unit (UCUM) | Description    |
 | -------- | --------------- | ----------- | -------------- |
@@ -149,7 +152,7 @@ Available starting in: .NET 8.0.
 
 Available starting in: .NET 8.0.
 
-### Metric: `aspnetcore.rate_limiting.request.time_in_queue`
+##### Metric: `aspnetcore.rate_limiting.request.time_in_queue`
 
 | Name     | Instrument Type | Unit (UCUM) | Description    |
 | -------- | --------------- | ----------- | -------------- |
@@ -162,7 +165,7 @@ Available starting in: .NET 8.0.
 
 Available starting in: .NET 8.0.
 
-### Metric: `aspnetcore.rate_limiting.requests`
+##### Metric: `aspnetcore.rate_limiting.requests`
 
 | Name     | Instrument Type | Unit (UCUM) | Description    |
 | -------- | --------------- | ----------- | -------------- |
@@ -182,7 +185,7 @@ The `Microsoft.AspNetCore.HeaderParsing` metrics report information about [ASP.N
 - [`aspnetcore.header_parsing.parse_errors`](#metric-aspnetcoreheader_parsingparse_errors)
 - [`aspnetcore.header_parsing.cache_accesses`](#metric-aspnetcoreheader_parsingcache_accesses)
 
-### Metric: `aspnetcore.header_parsing.parse_errors`
+##### Metric: `aspnetcore.header_parsing.parse_errors`
 
 | Name | Instrument Type | Unit (UCUM) | Description |
 |--|--|--|--|
@@ -195,7 +198,7 @@ The `Microsoft.AspNetCore.HeaderParsing` metrics report information about [ASP.N
 
 Available starting in: .NET 8.0.
 
-### Metric: `aspnetcore.header_parsing.cache_accesses`
+##### Metric: `aspnetcore.header_parsing.cache_accesses`
 
 The metric is emitted only for HTTP request header parsers that support caching.
 
@@ -223,7 +226,7 @@ The `Microsoft.AspNetCore.Server.Kestrel` metrics report HTTP connection informa
 - [`kestrel.tls_handshake.duration`](#metric-kestreltls_handshakeduration)
 - [`kestrel.active_tls_handshakes`](#metric-kestrelactive_tls_handshakes)
 
-### Metric: `kestrel.active_connections`
+##### Metric: `kestrel.active_connections`
 
 | Name     | Instrument Type | Unit (UCUM) | Description    |
 | -------- | --------------- | ----------- | -------------- |
@@ -238,7 +241,7 @@ The `Microsoft.AspNetCore.Server.Kestrel` metrics report HTTP connection informa
 
 Available starting in: .NET 8.0.
 
-### Metric: `kestrel.connection.duration`
+##### Metric: `kestrel.connection.duration`
 
 | Name     | Instrument Type | Unit (UCUM) | Description    |
 | -------- | --------------- | ----------- | -------------- |
@@ -255,9 +258,11 @@ Available starting in: .NET 8.0.
 | `server.port` | int | Server port number | `80`; `8080`; `443` | If the transport is `tcp` or `udp`. |
 | `tls.protocol.version` | string | TLS protocol version. | `1.2`; `1.3` | If the connection is secured with TLS. |
 
+As this metric is tracking the connection duration, and ideally http connections are used for multiple requests, the buckets should be longer than those used for request durations. For example, using [ 0.01, 0.02, 0.05, 0.1, 0.2, 0.5, 1, 2, 5, 10, 30, 60, 120, 300] provides an upper bucket of 5 mins.
+
 Available starting in: .NET 8.0.
 
-### Metric: `kestrel.rejected_connections`
+##### Metric: `kestrel.rejected_connections`
 
 | Name     | Instrument Type | Unit (UCUM) | Description    |
 | -------- | --------------- | ----------- | -------------- |
@@ -274,7 +279,7 @@ Connections are rejected when the currently active count exceeds the value confi
 
 Available starting in: .NET 8.0.
 
-### Metric: `kestrel.queued_connections`
+##### Metric: `kestrel.queued_connections`
 
 | Name     | Instrument Type | Unit (UCUM) | Description    |
 | -------- | --------------- | ----------- | -------------- |
@@ -289,7 +294,7 @@ Available starting in: .NET 8.0.
 
 Available starting in: .NET 8.0.
 
-### Metric: `kestrel.queued_requests`
+##### Metric: `kestrel.queued_requests`
 
 | Name     | Instrument Type | Unit (UCUM) | Description    |
 | -------- | --------------- | ----------- | -------------- |
@@ -306,7 +311,7 @@ Available starting in: .NET 8.0.
 
 Available starting in: .NET 8.0.
 
-### Metric: `kestrel.upgraded_connections`
+##### Metric: `kestrel.upgraded_connections`
 
 | Name     | Instrument Type | Unit (UCUM) | Description    |
 | -------- | --------------- | ----------- | -------------- |
@@ -323,7 +328,7 @@ The counter only tracks HTTP/1.1 connections.
 
 Available starting in: .NET 8.0.
 
-### Metric: `kestrel.tls_handshake.duration`
+##### Metric: `kestrel.tls_handshake.duration`
 
 | Name     | Instrument Type | Unit (UCUM) | Description    |
 | -------- | --------------- | ----------- | -------------- |
@@ -338,9 +343,11 @@ Available starting in: .NET 8.0.
 | `server.port` | int | Server port number | `80`; `8080`; `443` | If the transport is `tcp` or `udp`. |
 | `tls.protocol.version` | string | TLS protocol version. | `1.2`; `1.3` | If the connection is secured with TLS. |
 
+When using OpenTelemetry, the default buckets for this metic are set to [ 0.005, 0.01, 0.025, 0.05, 0.075, 0.1, 0.25, 0.5, 0.75, 1, 2.5, 5, 7.5, 10 ].
+
 Available starting in: .NET 8.0.
 
-### Metric: `kestrel.active_tls_handshakes`
+##### Metric: `kestrel.active_tls_handshakes`
 
 | Name     | Instrument Type | Unit (UCUM) | Description    |
 | -------- | --------------- | ----------- | -------------- |
@@ -362,7 +369,7 @@ The `Microsoft.AspNetCore.Http.Connections` metrics report connection informatio
 - [`signalr.server.connection.duration`](#metric-signalrserverconnectionduration)
 - [`signalr.server.active_connections`](#metric-signalrserveractive_connections)
 
-### Metric: `signalr.server.connection.duration`
+##### Metric: `signalr.server.connection.duration`
 
 | Name     | Instrument Type | Unit (UCUM) | Description    |
 | -------- | --------------- | ----------- | -------------- |
@@ -375,7 +382,25 @@ The `Microsoft.AspNetCore.Http.Connections` metrics report connection informatio
 
 Available starting in: .NET 8.0.
 
-### Metric: `signalr.server.active_connections`
+| Value  | Description |
+|---|---|
+| `normal_closure` | The connection was closed normally. |
+| `timeout` | The connection was closed due to a timeout. |
+| `app_shutdown` | The connection was closed because the app is shutting down. |
+
+`signalr.transport` is one of the following:
+
+| Value  | Protocol |
+|---|---|
+| `server_sent_events` | [server-sent events](https://developer.mozilla.org/docs/Web/API/Server-sent_events/Using_server-sent_events)  |
+| `long_polling` | [Long Polling](/archive/msdn-magazine/2012/april/cutting-edge-long-polling-and-signalr) |
+| `web_sockets` | [WebSocket](https://datatracker.ietf.org/doc/html/rfc6455) |
+
+As this metric is tracking the connection duration, and ideally SignalR connections are durable, the buckets should be longer than those used for request durations. For example, using [0, 0.01, 0.02, 0.05, 0.1, 0.2, 0.5, 1, 2, 5, 10, 30, 60, 120, 300] provides an upper bucket of 5 mins.
+
+Available starting in: .NET 8.0.
+
+##### Metric: `signalr.server.active_connections`
 
 | Name     | Instrument Type | Unit (UCUM) | Description    |
 | -------- | --------------- | ----------- | -------------- |
